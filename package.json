@@ -1,0 +1,26 @@
+{
+  "name": "request-queue",
+  "version": "1.0.0",
+  "description": "```TypeScript\r /**\r  * 进行一系列的初始化操作，可传入自定义的 RequestConfig，否则则使用默认的配置\r  */\r RequestConfig rc = new RequestConfigBuilder\r             .setBaseUrl(\"url\") // 设置总域名\r             .setTimeout(1000) // 设置超时时间\r             .setHeader(\"\",\"\")\r             .addHeaders(\"key\",\"value\") // 添加通用请求头\r             .setWithCredentials(true) // 跨域是否使用凭证\r             .setAuth(\"key\", \"value\") // `auth` 表示应该使用 HTTP 基础验证，并提供凭据 这将设置一个 `Authorization` 头，覆写掉现有的任意使用 `headers` 设置的自定义 `Authorization`头\r             .setResponseType() // 表示服务器响应的数据类型，可以是 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'\r             .setResponseEncoding() // 指示用于解码响应的编码。 注意：忽略“ stream”或客户端请求的“ responseType”\r             .setXsrfCookieName() // 用作 xsrf token 的值的cookie的名称\r             .setXsrfHeaderName() // 是带有xsrf令牌值的http标头的名称\r             .setMaxContentLength() // 定义允许的响应内容的最大尺寸\r             .setValidateStatus(function (status) { return status >= 200 && status < 300; /* default */ }) // 定义对于给定的 HTTP 响应状态码是 resolve 或 reject  promise 。如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，promise 将被 resolve; 否则，promise 将被 rejecte\r             .setMaxRedirects(5) // 定义在 node.js 中 follow 的最大重定向数目 如果设置为0，将不会 follow 任何重定向\r             .setRetry(0) // 重试次数\r             .setTask() // 设置请求框架 axios、wx.request ...\r             .addConverterFactory(RequestConfig?); // 设置数据解析器\r             .build() // 对数初始化\r RequestQueue.setRequestConfig(rc);",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.17",
+    "@types/qs": "^6.9.5",
+    "qs": "^6.9.4",
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.1.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  },
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development",
+    "webpack": "webpack --version",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}

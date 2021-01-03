@@ -1,0 +1,6 @@
+export enum RefreshEnum {
+    REFRESH_STATE_INIT,
+    REFRESH_STATE_REFRESH,
+    REFRESH_STATE_LOAD,
+    REFRESH_STATE_CUT,
+}
